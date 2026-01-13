@@ -1,7 +1,7 @@
 # 📦 SmartInventory  
 **Inventory & Stock Management System**
 
-**SmartInventory** is a web-based inventory and stock management system designed for small and medium-sized businesses. The system provides a centralized platform to manage products, track stock levels, maintain supplier information, and monitor sales and purchase records efficiently. By automating inventory management, SmartInventory reduces manual errors and improves operational efficiency.
+**SmartInventory** is a web-based inventory and stock management system designed for small and medium-sized businesses. The system provides a centralized platform to manage products, track stock levels, maintain supplier information and monitor sales and purchase records efficiently. By automating inventory management, SmartInventory reduces manual errors and improves operational efficiency.
 
 ---
 
@@ -39,7 +39,5 @@
 - Provide small businesses with a reliable digital inventory solution  
 - Minimize errors and inefficiencies associated with manual stock management  
 - Enable data-driven decision-making through analytics and reporting  
-- Demonstrate full-stack development skills, including database design, CRUD operations, and dashboard creation  
+- Demonstrate full-stack development skills, including database design, CRUD operations, and dashboard creation
 
-git clone https://github.com/your-username/SmartInventory.git
-cd SmartInventory
