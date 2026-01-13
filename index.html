@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartInventory - Inventory Management System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            text-align: center;
+            color: white;
+            padding: 40px;
+        }
+        
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: white;
+            color: #4f46e5;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            transition: transform 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .features {
+            margin-top: 60px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .feature {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+        }
+        
+        .feature-icon {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+        .feature h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        
+        .feature p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📦 SmartInventory</h1>
+        <p>Complete Inventory & Stock Management System</p>
+        <a href="login.html" class="btn">Get Started</a>
+        
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">📦</div>
+                <h3>Product Management</h3>
+                <p>Manage your entire product catalog</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📊</div>
+                <h3>Real-time Analytics</h3>
+                <p>Track sales and inventory trends</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">⚠️</div>
+                <h3>Low Stock Alerts</h3>
+                <p>Never run out of products</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">💰</div>
+                <h3>Sales & Purchases</h3>
+                <p>Record and track all transactions</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Auto-redirect if already logged in
+        fetch('api/auth.php?action=check')
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = 'dashboard.html';
+                }
+            })
+            .catch(() => {});
+    </script>
+</body>
+</html>

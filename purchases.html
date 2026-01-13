@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchases - SmartInventory</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>📦 SmartInventory</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-link">
+                <span>📊</span> Dashboard
+            </a>
+            <a href="products.html" class="nav-link">
+                <span>📦</span> Products
+            </a>
+            <a href="suppliers.html" class="nav-link">
+                <span>🏢</span> Suppliers
+            </a>
+            <a href="sales.html" class="nav-link">
+                <span>💰</span> Sales
+            </a>
+            <a href="purchases.html" class="nav-link active">
+                <span>🛒</span> Purchases
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="user-info" id="userInfo">
+                <strong>Admin</strong>
+            </div>
+            <button class="btn btn-secondary btn-sm" onclick="logout()">Logout</button>
+        </div>
+    </div>
+    
+    <div class="main-content">
+        <div class="topbar">
+            <h1>Purchases Management</h1>
+            <div class="topbar-actions">
+                <button class="btn btn-primary" onclick="openPurchaseModal()">+ Record Purchase</button>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="table-card">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Supplier</th>
+                                <th>Quantity</th>
+                                <th>Unit Cost</th>
+                                <th>Total Cost</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="purchasesTable">
+                            <tr>
+                                <td colspan="7" class="text-center">Loading...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Purchase Modal -->
+    <div id="purchaseModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Record Purchase</h2>
+                <span class="close" onclick="closePurchaseModal()">&times;</span>
+            </div>
+            <form id="purchaseForm">
+                <div class="form-group">
+                    <label for="purchaseProduct">Product *</label>
+                    <select id="purchaseProduct" required>
+                        <option value="">Select Product</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="purchaseSupplier">Supplier</label>
+                    <select id="purchaseSupplier">
+                        <option value="">Select Supplier</option>
+                    </select>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="purchaseQuantity">Quantity *</label>
+                        <input type="number" id="purchaseQuantity" min="1" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="purchaseUnitCost">Unit Cost *</label>
+                        <input type="number" id="purchaseUnitCost" step="0.01" min="0" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Total Cost:</label>
+                    <h3 id="totalCost">$0.00</h3>
+                </div>
+                
+                <div class="alert" id="purchaseAlert" style="display: none;"></div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closePurchaseModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="savePurchaseBtn">Record Purchase</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="js/purchases.js"></script>
+</body>
+</html>

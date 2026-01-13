@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - SmartInventory</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>📦 SmartInventory</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-link active">
+                <span>📊</span> Dashboard
+            </a>
+            <a href="products.html" class="nav-link">
+                <span>📦</span> Products
+            </a>
+            <a href="suppliers.html" class="nav-link">
+                <span>🏢</span> Suppliers
+            </a>
+            <a href="sales.html" class="nav-link">
+                <span>💰</span> Sales
+            </a>
+            <a href="purchases.html" class="nav-link">
+                <span>🛒</span> Purchases
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="user-info" id="userInfo">
+                <strong>Admin</strong>
+            </div>
+            <button class="btn btn-secondary btn-sm" onclick="logout()">Logout</button>
+        </div>
+    </div>
+    
+    <div class="main-content">
+        <div class="topbar">
+            <h1>Dashboard</h1>
+            <div class="topbar-actions">
+                <span id="currentDate"></span>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon blue">📦</div>
+                    <div class="stat-info">
+                        <h3 id="totalProducts">0</h3>
+                        <p>Total Products</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon green">🏢</div>
+                    <div class="stat-info">
+                        <h3 id="totalSuppliers">0</h3>
+                        <p>Total Suppliers</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon purple">💰</div>
+                    <div class="stat-info">
+                        <h3 id="totalSales">$0</h3>
+                        <p>Sales (This Month)</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon orange">🛒</div>
+                    <div class="stat-info">
+                        <h3 id="totalPurchases">$0</h3>
+                        <p>Purchases (This Month)</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dashboard-row">
+                <div class="chart-card">
+                    <h3>Sales Trend (Last 7 Days)</h3>
+                    <canvas id="salesChart"></canvas>
+                </div>
+                
+                <div class="chart-card">
+                    <h3>Best Selling Products</h3>
+                    <canvas id="productsChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="dashboard-row">
+                <div class="table-card">
+                    <h3>⚠️ Low Stock Alert</h3>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>SKU</th>
+                                    <th>Current Stock</th>
+                                    <th>Min Level</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody id="lowStockTable">
+                                <tr>
+                                    <td colspan="5" class="text-center">Loading...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="dashboard-row">
+                <div class="table-card">
+                    <h3>Recent Sales</h3>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Amount</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recentSalesTable">
+                                <tr>
+                                    <td colspan="4" class="text-center">Loading...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="table-card">
+                    <h3>Recent Purchases</h3>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Cost</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recentPurchasesTable">
+                                <tr>
+                                    <td colspan="4" class="text-center">Loading...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

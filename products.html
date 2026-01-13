@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - SmartInventory</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h2>📦 SmartInventory</h2>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-link">
+                <span>📊</span> Dashboard
+            </a>
+            <a href="products.html" class="nav-link active">
+                <span>📦</span> Products
+            </a>
+            <a href="suppliers.html" class="nav-link">
+                <span>🏢</span> Suppliers
+            </a>
+            <a href="sales.html" class="nav-link">
+                <span>💰</span> Sales
+            </a>
+            <a href="purchases.html" class="nav-link">
+                <span>🛒</span> Purchases
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="user-info" id="userInfo">
+                <strong>Admin</strong>
+            </div>
+            <button class="btn btn-secondary btn-sm" onclick="logout()">Logout</button>
+        </div>
+    </div>
+    
+    <div class="main-content">
+        <div class="topbar">
+            <h1>Products Management</h1>
+            <div class="topbar-actions">
+                <button class="btn btn-primary" onclick="openProductModal()">+ Add Product</button>
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="filters-bar">
+                <input type="text" id="searchInput" placeholder="Search products..." class="search-input">
+                <select id="categoryFilter" class="filter-select">
+                    <option value="">All Categories</option>
+                </select>
+            </div>
+            
+            <div class="table-card">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>SKU</th>
+                                <th>Name</th>
+                                <th>Category</th>
+                                <th>Cost Price</th>
+                                <th>Selling Price</th>
+                                <th>Stock</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productsTable">
+                            <tr>
+                                <td colspan="8" class="text-center">Loading...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Product Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Add Product</h2>
+                <span class="close" onclick="closeProductModal()">&times;</span>
+            </div>
+            <form id="productForm">
+                <input type="hidden" id="productId">
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productName">Product Name *</label>
+                        <input type="text" id="productName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productSku">SKU *</label>
+                        <input type="text" id="productSku" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productBarcode">Barcode</label>
+                        <input type="text" id="productBarcode">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productCategory">Category</label>
+                        <select id="productCategory">
+                            <option value="">Select Category</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productSupplier">Supplier</label>
+                        <select id="productSupplier">
+                            <option value="">Select Supplier</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productCostPrice">Cost Price *</label>
+                        <input type="number" id="productCostPrice" step="0.01" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productSellingPrice">Selling Price *</label>
+                        <input type="number" id="productSellingPrice" step="0.01" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="productStock">Stock Quantity</label>
+                        <input type="number" id="productStock" value="0">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productMinStock">Min Stock Level</label>
+                        <input type="number" id="productMinStock" value="10">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="productDescription">Description</label>
+                    <textarea id="productDescription" rows="3"></textarea>
+                </div>
+                
+                <div class="alert" id="productAlert" style="display: none;"></div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="closeProductModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="saveProductBtn">Save Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="js/products.js"></script>
+</body>
+</html>
