@@ -8,7 +8,7 @@
 ## ⚙ Features
 
 ### Product Management
-- Add, update, and delete products with essential details (name, category, SKU, cost, price, and quantity)  
+- Add, update and delete products with essential details (name, category, SKU, cost, price and quantity)  
 - Search and filter products for easy navigation  
 - Real-time stock tracking to maintain accurate inventory levels  
 
@@ -29,7 +29,7 @@
 
 ### Dashboard and Analytics
 - Centralized dashboard displaying key business metrics  
-- Visual analytics for sales performance, stock status, and best-selling products  
+- Visual analytics for sales performance, stock status and best-selling products  
 - Summary of low-stock items for proactive management  
 
 ---
@@ -39,5 +39,5 @@
 - Provide small businesses with a reliable digital inventory solution  
 - Minimize errors and inefficiencies associated with manual stock management  
 - Enable data-driven decision-making through analytics and reporting  
-- Demonstrate full-stack development skills, including database design, CRUD operations, and dashboard creation
+- Demonstrate full-stack development skills, including database design, CRUD operations and dashboard creation
 
