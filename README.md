@@ -33,6 +33,11 @@
 - Summary of low-stock items for proactive management  
 
 ---
+## 🛠 Technology Stack
+
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend:** PHP 
+- **Database:** MySQL  
 
 ## 💡 Project Objectives
 
